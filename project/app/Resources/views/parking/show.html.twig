@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Parking : {{ parking.name }}</h1>
+                <a href="{{ path('parking_index') }}" class="">Retour à la liste des parkings</a>
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Nom</th>
+                        <th>{{ parking.name }}</th>
+                    </tr>
+                    <tr>
+                        <th>Adresse</th>
+                        <th>{{ parking.address }}</th>
+                    </tr>
+                    <tr>
+                        <th>Ville</th>
+                        <th>{{ parking.city }}</th>
+                    </tr>
+                    <tr>
+                        <th>Code postal</th>
+                        <th>{{ parking.zipcode }}</th>
+                    </tr>
+                    <tr>
+                        <th>Latitude</th>
+                        <th>{{ parking.latitude }}</th>
+                    </tr>
+                    <tr>
+                        <th>Longitude</th>
+                        <th>{{ parking.longitude }}</th>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <th>{{ parking.poi }}</th>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

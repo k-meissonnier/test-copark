@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Copark{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{% block description %}{{ 'base.meta_description' | trans }}{% endblock %}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key={{ google_key }}">
+        </script>
+    </body>
+</html>

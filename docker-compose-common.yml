@@ -1,0 +1,23 @@
+version: '2'
+services:
+  web:
+    image: zolweb/nginx-sf:2.0-alpine
+    volumes:
+      - ./var/logs/nginx:/var/log/nginx
+
+  php:
+    image: zolweb/php7:2.2-alpine
+    environment:
+      SYMFONY_ENV:
+      PROJECT_ENV:
+      CUSTOM_UID: ${UID}
+      WAIT_FOR_HOSTS: db:3306
+    volumes:
+      - ./var/logs/php:/var/log/php
+      - ./var/logs/app:/var/www/html/var/logs
+
+  db:
+    image: mysql:5.6.33
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./var/logs/mysql:/var/lib/mysql/logs

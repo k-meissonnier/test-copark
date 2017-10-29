@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Trouve ton parking</h1>
+        <div class="row">
+            <div class="col-md-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Adresse</th>
+                            <th>Code postal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for parking in parkingList  %}
+                        <tr class="js-parking" data-title="{{ parking.name }}"
+                            data-latitude="{{ parking.latitude }}"
+                            data-longitude="{{ parking.longitude }}"
+                            data-link="{{ path('parking_show', {'id': parking.id}) }}">
+                            <th>
+                                <a class="js-parking-link" href="{{ path('parking_show', {'id': parking.id}) }}">
+                                    {{ parking.name }}
+                                </a>
+                            </th>
+                            <th>{{ parking.address }}</th>
+                            <th>{{ parking.zipcode }}</th>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-7">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

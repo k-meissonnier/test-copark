@@ -1,0 +1,4 @@
+.idea/
+data/
+var/
+docker-compose-dev.yml
